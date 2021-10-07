@@ -37,5 +37,9 @@ export default styled(ScreenComponent)`
     font-family: Roboto, sans-serif;
     font-weight: bold;
     font-size: 64pt;
+
+    @media (max-width: 755px) {
+      font-size: 30pt;
+    }
   }
 `

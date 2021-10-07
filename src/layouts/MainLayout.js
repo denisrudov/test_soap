@@ -5,36 +5,39 @@ import MenuComponent from 'components/menuComponent/MenuComponent'
 import useMenu from 'hooks/useMenu'
 import NotFound from 'components/notFound/NotFound'
 
-const MainLayout = ({
-  component: Component,
-  className,
-  ...rest
-}) => {
+const MainLayout = ({ component: Component, className, ...rest }) => {
   const { pathname } = useLocation()
   const { navigation } = useMenu()
 
   const keys = navigation.map(({ path }) => path)
 
   if (pathname === '/') {
-    return <Redirect to={`/${navigation[0].path}`}/>
+    return <Redirect to={`/${navigation[0].path}`} />
   }
-  if (!keys.some(keyItem => `/${keyItem}` === pathname)) {
-    return <NotFound/>
+  if (!keys.some((keyItem) => `/${keyItem}` === pathname)) {
+    return <NotFound />
   }
 
-  return <Route {...rest} render={props => (
-    <div className={className}>
-      <div className={`${className}__content`}><Component {...props}/></div>
-      <MenuComponent {...props} />
-    </div>
-  )}/>
+  return (
+    <Route
+      {...rest}
+      render={(props) => (
+        <div className={className}>
+          <div className={`${className}__content`}>
+            <Component {...props} />
+          </div>
+          <MenuComponent {...props} />
+        </div>
+      )}
+    />
+  )
 }
 
 export default styled(MainLayout)`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
+
   &__content {
     flex: 1;
   }

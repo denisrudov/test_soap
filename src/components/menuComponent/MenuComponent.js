@@ -11,8 +11,7 @@ const MenuComponent = ({ className }) => {
   return (
     <div className={className}>
       {navigation.map((navItem, idx) => (
-        <MenuItem active={routeName === navItem.path}
-                  key={idx} {...navItem}/>
+        <MenuItem active={routeName === navItem.path} key={idx} {...navItem} />
       ))}
     </div>
   )

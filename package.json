@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "get-google-fonts": "^1.2.2"
+    "get-google-fonts": "^1.2.2",
+    "prettier": "2.4.1"
   }
 }

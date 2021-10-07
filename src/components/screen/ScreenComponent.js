@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import useMenu from 'hooks/useMenu'
+import { Helmet } from 'react-helmet-async'
 
 const ScreenComponent = ({ className }) => {
   const {
@@ -8,10 +9,16 @@ const ScreenComponent = ({ className }) => {
   } = useMenu()
 
   return (
-    <div className={className}>
-      <div className={`${className}__title`}>{name}</div>
-      <img className={`${className}__image`} src={image} alt={name} />
-    </div>
+    <>
+      <Helmet>
+        <title>{name}</title>
+        <link rel="icon" type="image/svg+xml" href={image} />
+      </Helmet>
+      <div className={className}>
+        <div className={`${className}__title`}>{name}</div>
+        <img className={`${className}__image`} src={image} alt={name} />
+      </div>
+    </>
   )
 }
 

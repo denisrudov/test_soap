@@ -34,11 +34,7 @@ const MainLayout = ({ component: Component, className, ...rest }) => {
 }
 
 export default styled(MainLayout)`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr auto;
   min-height: 100vh;
-
-  &__content {
-    flex: 1;
-  }
 `

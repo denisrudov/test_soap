@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 import cn from 'classnames'
 import MenuIcon from 'components/menuComponent/MenuIcon'
-import { useHistory } from 'react-router-dom'
 
-const MenuItem = ({ className, image, name, active, path }) => {
+const MenuItem = ({ className, image, name, active = () => {}, path }) => {
   const { push } = useHistory()
 
   const onHandleClick = useCallback(() => {
@@ -14,7 +14,7 @@ const MenuItem = ({ className, image, name, active, path }) => {
   return (
     <div
       onClick={onHandleClick}
-      className={cn(className, { [`${className}__active`]: active })}
+      className={cn(className, { [`${className}__active`]: active(path) })}
     >
       <MenuIcon src={image} />
       <div className={`${className}__name`}>{name}</div>

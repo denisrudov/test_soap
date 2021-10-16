@@ -13,9 +13,12 @@ export default () => {
   const getMenuItem = (pathKey) =>
     navigationItems.find(({ path }) => path === pathKey)
 
+  const isActiveItem = (pathKey) => pathKey === locationPath
+
   return {
     navigation: navigationItems,
     getMenuItem,
     activeObject: getMenuItem(locationPath),
+    isActiveItem,
   }
 }

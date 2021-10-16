@@ -2,16 +2,14 @@ import styled from 'styled-components'
 
 import useMenu from 'hooks/useMenu'
 import MenuItem from 'components/menuComponent/MenuItem'
-import { useParams } from 'react-router-dom'
 
 const MenuComponent = ({ className }) => {
-  const { navigation } = useMenu()
-  const { name: routeName } = useParams()
+  const { navigation, isActiveItem } = useMenu()
 
   return (
     <div className={className}>
       {navigation.map((navItem, idx) => (
-        <MenuItem active={routeName === navItem.path} key={idx} {...navItem} />
+        <MenuItem active={isActiveItem} key={idx} {...navItem} />
       ))}
     </div>
   )

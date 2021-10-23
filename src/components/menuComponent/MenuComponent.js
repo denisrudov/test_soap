@@ -7,11 +7,11 @@ const MenuComponent = ({ className }) => {
   const { navigation, isActiveItem } = useMenu()
 
   return (
-    <div className={className}>
+    <ul className={className}>
       {navigation.map((navItem, idx) => (
         <MenuItem active={isActiveItem} key={idx} {...navItem} />
       ))}
-    </div>
+    </ul>
   )
 }
 

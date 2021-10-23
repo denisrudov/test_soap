@@ -4,6 +4,16 @@ import { useHistory } from 'react-router-dom'
 import cn from 'classnames'
 import MenuIcon from 'components/menuComponent/MenuIcon'
 
+const ItemName = styled.div`
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  color: #000;
+  font-size: 12px;
+  line-height: 16px;
+  padding-top: 16.2px;
+`
+
 const MenuItem = ({ className, image, name, active = () => {}, path }) => {
   const { push } = useHistory()
 
@@ -12,13 +22,13 @@ const MenuItem = ({ className, image, name, active = () => {}, path }) => {
   }, [path, push])
 
   return (
-    <div
+    <li
       onClick={onHandleClick}
       className={cn(className, { [`${className}__active`]: active(path) })}
     >
       <MenuIcon src={image} />
-      <div className={`${className}__name`}>{name}</div>
-    </div>
+      <ItemName>{name}</ItemName>
+    </li>
   )
 }
 
@@ -30,6 +40,7 @@ export default styled(MenuItem)`
   padding-bottom: 15px;
   cursor: pointer;
   padding-top: 25px;
+  border-radius: 8px 8px 0 0;
 
   &__active {
     background: rgb(245, 169, 108);
@@ -38,16 +49,5 @@ export default styled(MenuItem)`
       rgba(245, 169, 108, 1) 0%,
       rgba(253, 229, 136, 1) 100%
     );
-    border-radius: 8px 8px 0 0;
-  }
-
-  &__name {
-    text-align: center;
-    font-family: Roboto, sans-serif;
-    font-weight: bold;
-    color: #000;
-    font-size: 12px;
-    line-height: 16px;
-    padding-top: 16.2px;
   }
 `

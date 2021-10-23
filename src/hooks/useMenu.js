@@ -10,9 +10,25 @@ export default () => {
     path: name.toLowerCase(),
   }))
 
+  /**
+   * Gets items keys
+   * @type {string[]}
+   */
+  const keys = navigationItems.map(({ path }) => path)
+
+  /**
+   * Get Item from list
+   * @param pathKey
+   * @return {{image: *, path: *, name: *}}
+   */
   const getMenuItem = (pathKey) =>
     navigationItems.find(({ path }) => path === pathKey)
 
+  /**
+   * Check for active menu item
+   * @param pathKey
+   * @return {boolean}
+   */
   const isActiveItem = (pathKey) => pathKey === locationPath
 
   return {
@@ -20,5 +36,6 @@ export default () => {
     getMenuItem,
     activeObject: getMenuItem(locationPath),
     isActiveItem,
+    keys,
   }
 }

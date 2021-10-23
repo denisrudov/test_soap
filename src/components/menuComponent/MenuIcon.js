@@ -11,14 +11,10 @@ const Img = styled.img`
   height: 100%;
 `
 
-const MenuIcon = ({ className, src, alt }) => {
-  return (
-    <div className={className}>
-      <ImageContainer>
-        <Img src={src} alt={alt} />
-      </ImageContainer>
-    </div>
-  )
-}
+const MenuIcon = (props) => (
+  <ImageContainer>
+    <Img {...props} />
+  </ImageContainer>
+)
 
-export default styled(MenuIcon)``
+export default MenuIcon

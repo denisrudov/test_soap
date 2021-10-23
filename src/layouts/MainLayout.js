@@ -7,9 +7,7 @@ import NotFound from 'components/notFound/NotFound'
 
 const MainLayout = ({ component: Component, className, ...rest }) => {
   const { pathname } = useLocation()
-  const { navigation } = useMenu()
-
-  const keys = navigation.map(({ path }) => path)
+  const { navigation, keys } = useMenu()
 
   if (pathname === '/') {
     return <Redirect to={`/${navigation[0].path}`} />

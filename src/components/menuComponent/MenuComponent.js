@@ -17,4 +17,5 @@ const MenuComponent = ({ className }) => {
 
 export default styled(MenuComponent)`
   display: flex;
+  list-style: none;
 `

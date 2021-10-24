@@ -4,10 +4,13 @@ import { useParams } from 'react-router-dom'
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
   const { name: locationPath } = useParams()
-  const navigationItems = navigation.map(({ name, image }) => ({
-    name,
-    image,
-    path: name.toLowerCase(),
+
+  /**
+   * Map Objects with Path
+   */
+  const navigationItems = navigation.map((itemObject) => ({
+    ...itemObject,
+    path: itemObject.name.toLowerCase(),
   }))
 
   /**
